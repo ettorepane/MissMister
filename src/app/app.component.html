@@ -12,7 +12,7 @@
     <div style="width: 50px; height: 50px;" class="spinner-border" role="status">
     </div>
   </div>
-  <div class="GAME" *ngIf="onPlay && !loading">
+  <div class="GAME" *ngIf="onPlay && !loading && cardsShown">
     <!-- CARD -->
     <div id="firstCard" class="card fadeFromRight">
       <a (click)="selectOne()">

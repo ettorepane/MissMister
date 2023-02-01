@@ -186,3 +186,7 @@ header{
 span{
   margin-left: 5px;
 }
+
+.card img {
+  max-height: 170px;
+}

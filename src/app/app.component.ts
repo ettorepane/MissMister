@@ -26,11 +26,13 @@ export class AppComponent {
     }
     , 300);
   }
+  cardsShown = true;
   selectOne() {
-    alert('select one');
+    //animate card, by flipping it
+    this.cardsShown = false;
   }
   selectTwo() {
-    alert('select two');
+    this.cardsShown = false;
   }
 
 }
