@@ -1,0 +1,188 @@
+main{
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url(../assets/461223133.jpg);
+    /*center the image*/
+    background-position: center;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.logo{
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: logo 2s ease-in-out infinite;
+}
+.thegame{
+  padding-top: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: thegame 2s ease-in-out infinite;
+  max-width: 400px;
+
+}
+
+.thegamediv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes logo{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes thegame{
+    /*transparency*/
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.PLAYNOW{
+  height: 50%;
+  width: 100%;
+  /*flex center*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pixel {
+	display: block;
+	position: relative;
+	width: 300px;
+	height: 120px;
+	color: #efff00;
+	font-size: 30px;
+	text-transform: uppercase;
+	background-color: #0300ff;
+	border: none;
+	margin-top: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 24px;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-family: 'Press Start 2P', cursive;
+	outline: none;
+}
+.pixel::after {
+	content: "";
+	position: absolute;
+	width: 300px;
+	height: 120px;
+	top: 12px;
+	left: 0;
+	background-color: #0300ff;
+	border-radius: 24px;
+	z-index: -1;
+}
+.pixel:hover {
+	background-color: #5a57ff;
+}
+.pixel:active {
+	top: 10px;
+}
+.pixel:active::after {
+	top: 2px;
+}
+
+.card{
+  background-color: rgba(0, 0, 0, 0.772);
+  color: white;
+  text-align: center;
+  max-width: 300px;
+  /* yellow border in animation */
+  border: 2px solid #efff00;
+}
+
+@keyframes card{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.GAME{
+  width: 100%;
+  /*items are one on top of the,yet aligned to the center*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.or p {
+  color: white;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+.or{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.fadeFromLeft{
+  animation: fadeFromLeft 1s ease-in-out;
+}
+.fadeFromRight{
+  animation: fadeFromRight 1s ease-in-out;
+
+}
+@keyframes fadeFromLeft{
+    0%{
+        opacity: 1;
+        transform: translateX(-400px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeFromRight{
+    0%{
+        opacity: 1;
+        transform: translateX(+400px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+span{
+  margin-left: 5px;
+}
