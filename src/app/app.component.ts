@@ -24,15 +24,22 @@ export class AppComponent {
     setTimeout(() => {
       this.loading = false;
     }
-    , 300);
+    , 1000);
   }
   cardsShown = true;
   selectOne() {
     //animate card, by flipping it
-    this.cardsShown = false;
+    this.cardsShown = true;
+    this.onPlay = false;
+
+    this.onPlayChange();
   }
   selectTwo() {
-    this.cardsShown = false;
+    this.cardsShown = true;
+    this.onPlay = false;
+    this.onPlayChange();
   }
 
 }
+
+
