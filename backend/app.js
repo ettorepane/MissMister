@@ -60,27 +60,26 @@ app.options('*', function (req,res) { res.sendStatus(200); });
 
 app.get("/miss/random", (req, res, next) => {
   //select id, nome, immagine, instagramURL from miss order by rand() limit 2;
-  connection.query('SELECT id, nome, immagine, instagramURL FROM miss ORDER BY RAND() LIMIT 2', (err, rows, fields) => {
+  connection.query('SELECT id, nome, instagramURL FROM miss ORDER BY RAND() LIMIT 2', (err, rows, fields) => {
     if (err) throw err;
+    //send rows
     res.status(200).json({
       message: "Miss random fetched successfully!",
-      miss: rows
+      rows: rows
     });
   });
 });
 
 app.get("/mister/random", (req, res, next) => {
   //select id, nome, immagine, instagramURL from miss order by rand() limit 2;
-  connection.query('SELECT id, nome, immagine, instagramURL FROM mister ORDER BY RAND() LIMIT 2', (err, rows, fields) => {
+  connection.query('SELECT id, nome, instagramURL FROM mister ORDER BY RAND() LIMIT 2', (err, rows, fields) => {
     if (err) throw err;
     res.status(200).json({
       message: "Mister random fetched successfully!",
-      mister: rows
+      rows: rows
     });
   });
 });
-
-
 
 
 module.exports = app;

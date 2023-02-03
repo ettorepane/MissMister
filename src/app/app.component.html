@@ -16,12 +16,12 @@
     <!-- CARD -->
     <div id="firstCard" class="card fadeFromRight">
       <a (click)="selectOne()">
-        <img class="card-img-top" src="https://ik.imagekit.io/ettoreone/tr:w-500/1" alt="Card image cap">
+        <img class="card-img-top" src="{{firstImage}}" alt="Card image cap">
       </a>
       <div class="card-body">
-        <h5 class="card-title">Ettore Pane</h5>
+        <h5 class="card-title">{{firstName}}</h5>
         <!-- INSTAGRAM BUTTON with ICON -->
-        <a href="https://www.instagram.com/ettorepane/" target="_blank" class="btn btn-primary" style="color: black; background-color: white; border: none;">
+        <a href="{{firstInstagram}}" target="_blank" class="btn btn-primary" style="color: black; background-color: white; border: none;">
           <img src="https://cortex.persona.co/w/299/i/ae69aaeade81bd60e0eb6890649836f35a18cf7cd85c4f6b31aed486a9c64f2f/instagram-pixel-8-bit-logo.png" alt="" style="width: 20px; height: 20px;">
           <span>Instagram</span>
         </a>
@@ -33,12 +33,12 @@
     </div>
     <div id="secondCard" class="card fadeFromLeft">
       <a (click)="selectTwo()">
-        <img class="card-img-top" src="https://ik.imagekit.io/ettoreone/tr:w-500/2" alt="Card image cap">
+        <img class="card-img-top" src="{{secondImage}}" alt="Card image cap">
       </a>
       <div class="card-body">
-        <h5 class="card-title">Matteo Moiso</h5>
+        <h5 class="card-title">{{secondName}}</h5>
         <!-- INSTAGRAM BUTTON with ICON -->
-        <a href="https://www.instagram.com/teomoiso_/" target="_blank" class="btn btn-primary" style="color: black; background-color: white; border: none;">
+        <a href="{{secondInstagram}}" target="_blank" class="btn btn-primary" style="color: black; background-color: white; border: none;">
           <img src="https://cortex.persona.co/w/299/i/ae69aaeade81bd60e0eb6890649836f35a18cf7cd85c4f6b31aed486a9c64f2f/instagram-pixel-8-bit-logo.png" alt="" style="width: 20px; height: 20px;">
           <span>Instagram</span>
         </a>
