@@ -1,12 +1,16 @@
 <main>
   <header *ngIf="!onPlay">
-    <img class="logo" src="assets/missmister.png" alt="">
+    <img class="logo" src="assets/missmisterNew.png" alt="">
   </header>
   <div class="thegamediv">
     <img class="thegame" src="assets/thegame.png" alt="">
   </div>
+  <div class="totalPlaysDIV" *ngIf="!onPlay">
+    <p class="totalPlays">Partite totali:</p>
+    <p class="totalPlays">{{totalPlays}}</p>
+  </div>
   <div class="PLAYNOW" *ngIf="!onPlay">
-		<button class="pixel" (click)="onPlayChange()">GIOCA ORA</button>
+		<button disabled class="pixel" (click)="onPlayChange()">GIOCA ORA</button>
   </div>
   <div class="spinner" style="color: white" *ngIf="loading">
     <div style="width: 50px; height: 50px;" class="spinner-border" role="status">

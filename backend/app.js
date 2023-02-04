@@ -81,5 +81,62 @@ app.get("/mister/random", (req, res, next) => {
   });
 });
 
+app.post("/match", (req, res, next) => {
+  var contender1 = req.body.contender1;
+  var contender2 = req.body.contender2;
+  var winner = req.body.winner;
+  var type = req.body.type;
+  console.log(contender1);
+  console.log(contender2);
+  console.log(winner);
+  //insert into logs (first, second, winner, type) values
+  connection.query('INSERT INTO logs (first, second, winner, type) VALUES (?, ?, ?, ?)', [contender1, contender2, winner, type], (err, rows, fields) => {
+      if (err) throw err;
+      //now we need to update the score of the winner in the table
+      //if type is 1 then we are in miss, else we are in mister
+      if (type == 1) {
+          //update wins and totalPlay in miss
+          connection.query('UPDATE miss SET wins = wins + 1, totalPlay = totalPlay + 1 WHERE id = ?', [winner], (err, rows, fields) => {
+              if (err) throw err;
+              //now we need to update the loser
+              connection.query('UPDATE miss SET totalPlay = totalPlay + 1 WHERE id = ?', [contender1 == winner ? contender2 : contender1], (err, rows, fields) => {
+                  if (err) throw err;
+                  //update totalPlay in miss for the loser
+                  res.status(200).json({
+                      message: "Match inserted successfully!"
+                  });
+              });
+          });
+      }
+      else {
+          //update wins and totalPlay in mister
+          connection.query('UPDATE mister SET wins = wins + 1, totalPlay = totalPlay + 1 WHERE id = ?', [winner], (err, rows, fields) => {
+              if (err) throw err;
+              //now we need to update the loser
+              connection.query('UPDATE mister SET totalPlay = totalPlay + 1 WHERE id = ?', [contender1 == winner ? contender2 : contender1], (err, rows, fields) => {
+                  if (err) throw err;
+                  //update totalPlay in mister for the loser
+                  res.status(200).json({
+                      message: "Match inserted successfully!"
+                  });
+              });
+          });
+      }
+  });
+});
+
+app.get("/totalPlay", (req, res, next) => {
+  //the records in logs are the total play
+  connection.query('SELECT COUNT(*) AS totalPlay FROM logs', (err, rows, fields) => {
+    if (err) throw err;
+    res.status(200).json({
+      message: "Total play fetched successfully!",
+      rows: rows
+    });
+  });
+});
+
+
+
 
 module.exports = app;
